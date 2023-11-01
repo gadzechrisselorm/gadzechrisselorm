@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Memory Mate</title>
+		<link type="image/png" sizes="16x16" rel="icon" href="./images/icons8-heart-health-16 (1).png">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+
+		<!-- Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="/resources/css/reset.min.css">
+		<link rel="stylesheet" type="text/css" href="resources/css/style.css"> 
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<div class="top"> 
+                    <div class="btop">   
+						<span class="logo"><img src="./images/logo.svg" alt="" /></span>
+						<h3 class="name">Memory Mate</h3>
+						<div id="text-container"></div>
+						<p id="text" class="word" ></p>
+                    </div>
+				</div>
+				<script>
+					const textContainer = document.getElementById("text-container");
+					const textElement = document.getElementById("text");
+					const messages = [
+					  "Your Guide To Excellent Recovery!",
+					 
+					];
+				
+					let currentMessageIndex = 0;
+					let currentCharacterIndex = 0;
+				
+					function displayText() {
+					  if (currentMessageIndex < messages.length) {
+						const message = messages[currentMessageIndex];
+						const character = message.charAt(currentCharacterIndex);
+				
+						textElement.textContent += character;
+						if (character === "\n") {
+							textElement.innerHTML += "<br>";
+							}
+										
+						if (currentCharacterIndex < message.length - 1) {
+						  currentCharacterIndex++;
+						  setTimeout(displayText, 100); // Adjust the delay between characters
+						} else {
+						  setTimeout(() => {
+							//textElement.textContent = ""; // Clear the text
+							currentCharacterIndex = 0;
+							currentMessageIndex++;
+							displayText(); // Start the next message
+						  }, 1000); // Adjust the delay before the next message
+						}
+					  }
+					}
+				
+					displayText(); // Start the initial display
+					
+				  </script>
+
+				<!-- Main -->
+					<div id="main">
+							
+						<!-- Work -->
+							<article id="work" class="panel">
+								<header>
+									<input class="mytext" type="text" placeholder="Enter an activity.." id="item">
+									<button id="add">
+										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve"><g><path class="fill" d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z"/></g></svg>
+									</button>
+								</header>
+						
+								<div class="container">
+									<!-- Uncompleted tasks -->
+									<ul class="todo" id="todo"></ul>
+						
+									<!-- Completed tasks -->
+									<ul class="todo" id="completed"></ul>
+									
+								</div>
+						
+								<!-- JavaScripts -->
+								<script src="resources/js/main.js"></script>
+	
+							</article>
+						<!-- Contact -->
+							
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="copyright">
+							<li>&copy; Memory Mate'23.</li><li>Design: Gadze Chris Selorm</li>
+						</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
